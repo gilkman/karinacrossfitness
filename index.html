@@ -476,6 +476,7 @@
     .form-group textarea::placeholder { color: #666; }
     .form-group input:focus,
     .form-group textarea:focus { outline: none; border-color: var(--accent); }
+    .hidden { display: none; }
     .form-submit {
       background: var(--accent);
       color: #fff;
@@ -802,7 +803,10 @@
       </div>
     </div>
 
-    <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <p class="hidden">
+        <label>Don't fill this out: <input name="bot-field"></label>
+      </p>
       <div class="form-group">
         <label for="cf-name">Name</label>
         <input type="text" id="cf-name" name="name" placeholder="Your name" required>
