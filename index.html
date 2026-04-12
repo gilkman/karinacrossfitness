@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karina Cross Fitness | Personal Trainer | Greer, SC</title>
+  <meta name="description" content="Karina Cross Fitness — Expert personal training in Greer, SC since 1991. 12-time National Powerlifting Champion, ACSM Certified. Strength, weight loss, athletic performance, and more.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── COLOR PALETTE ── */
+    :root {
+      --accent:       #961b1d;
+      --accent-dark:  #6e1416;
+      --accent-light: #b52225;
+      --text-dark:    #0e0e0e;
+      --text-body:    #444444;
+      --text-muted:   #777777;
+      --bg-white:     #ffffff;
+      --bg-offwhite:  #f8f8f8;
+      --bg-lightgrey: #f2f2f2;
+      --bg-dark:      #0d0d0d;
+    }
+
+    /* ── TYPOGRAPHY — THE "POP" HEADLINE STYLE ── */
+    .pop-headline {
+      font-size: 36px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .pop-headline::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 12px;
+      margin-bottom: 28px;
+    }
+    .pop-headline.centered::after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pop-headline.dark {
+      color: var(--text-dark);
+    }
+    .pop-headline.dark::after {
+      background: var(--text-dark);
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      background: var(--bg-white);
+      padding: 0 48px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--accent);
+    }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-contact { display: flex; align-items: center; gap: 28px; }
+    .nav-contact a { color: #555; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-contact a:hover { color: var(--accent); }
+    .nav-contact a.phone { color: #1a1a1a; font-weight: 700; }
+    .nav-social { display: flex; gap: 12px; align-items: center; }
+    .nav-social a img { width: 22px; height: 22px; opacity: 0.6; transition: opacity 0.2s; }
+    .nav-social a:hover img { opacity: 1; }
+
+    /* ── HERO (photo) ── */
+    .hero {
+      background: url('assets/hero-bg_full.jpg') center center / cover no-repeat;
+      padding: 144px 24px 128px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.88);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 54px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-dark);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .hero-tagline {
+      font-size: 17px;
+      color: var(--text-body);
+      max-width: 620px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 16px 36px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 15px 36px;
+      border-radius: 4px;
+      border: 2px solid var(--text-dark);
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--text-dark); color: #fff; }
+
+    /* ── BADGES STRIP ── */
+    .badges {
+      background: var(--bg-offwhite);
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .badges-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 0;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-body);
+      letter-spacing: 0.5px;
+    }
+    .badges-inner .badge-sep { color: var(--accent); padding: 0 12px; }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--bg-white);
+      padding: 88px 24px;
+    }
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-photo-col img {
+      border-radius: 8px;
+      width: 100%;
+      max-width: 340px;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .about-text-col .pop-headline { margin-bottom: 8px; }
+    .about-text-col .pop-headline::after { margin-bottom: 20px; }
+    .about-text-col p {
+      font-size: 16px;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .about-text-col p strong { color: var(--text-dark); font-weight: 600; }
+    .about-link {
+      display: inline-block;
+      margin-top: 20px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .about-link:hover { background: var(--accent-light); }
+
+    /* ── MISSION ── */
+    .mission {
+      background: var(--bg-lightgrey);
+      padding: 88px 24px;
+    }
+    .mission-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .mission-inner .pop-headline { margin-bottom: 8px; }
+    .mission-inner .pop-headline::after { margin-left: auto; margin-right: auto; }
+    .mission p {
+      font-size: 17px;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+    .mission p:last-child { margin-bottom: 0; }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--bg-white);
+      padding: 88px 24px;
+    }
+    .services-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .services-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 52px;
+    }
+    .services-header .pop-headline { margin-bottom: 8px; }
+    .services-header .pop-headline::after { margin-left: auto; margin-right: auto; }
+    .services-header p {
+      font-size: 16px;
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--bg-offwhite);
+      border-radius: 8px;
+      padding: 32px 28px;
+      border: 1px solid #eee;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      transform: translateY(-3px);
+    }
+    .service-icon { font-size: 32px; margin-bottom: 16px; }
+    .service-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    /* ── PRICING ── */
+    .pricing {
+      background: var(--bg-lightgrey);
+      padding: 88px 24px;
+    }
+    .pricing-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .pricing-header .pop-headline { margin-bottom: 8px; }
+    .pricing-header .pop-headline::after { margin-left: auto; margin-right: auto; }
+    .pricing-header p {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .pricing-card {
+      background: var(--bg-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card.featured {
+      box-shadow: 0 4px 24px rgba(150,27,29,0.2);
+      border: 2px solid var(--accent);
+    }
+    .pricing-card-head {
+      padding: 32px 28px 24px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    .pricing-tier {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .pricing-price {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+    .pricing-price span { font-size: 16px; font-weight: 500; color: #888; }
+    .pricing-desc { margin-top: 8px; font-size: 14px; color: #666; line-height: 1.5; }
+    .pricing-features {
+      padding: 24px 28px;
+      flex: 1;
+      list-style: none;
+    }
+    .pricing-features li {
+      font-size: 14px;
+      color: #444;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pricing-features li:last-child { border-bottom: none; }
+    .pricing-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+    .pricing-cta { padding: 20px 28px 32px; }
+    .pricing-cta a {
+      display: block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 14px;
+      border-radius: 4px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .pricing-cta a:hover { background: var(--accent-light); }
+    .pricing-card.featured .pricing-tier { color: var(--accent-light); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--bg-white);
+      padding: 88px 24px;
+    }
+    .testimonials-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .testimonials-header .pop-headline { margin-bottom: 8px; }
+    .testimonials-header .pop-headline::after { margin-left: auto; margin-right: auto; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .testi-card {
+      background: var(--bg-offwhite);
+      border-radius: 8px;
+      padding: 32px 28px;
+      border-left: 4px solid var(--accent);
+    }
+    .testi-quote {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .testi-author { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--bg-dark);
+      padding: 88px 24px;
+      border-top: 3px solid var(--accent);
+    }
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .contact-info .pop-headline { color: #fff; margin-bottom: 24px; }
+    .contact-info .pop-headline::after { background: rgba(255,255,255,0.4); }
+    .contact-item { margin-bottom: 20px; }
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    a.contact-item-value {
+      font-size: 16px;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a.contact-item-value:hover { color: var(--accent-light); }
+    .contact-social { display: flex; gap: 14px; margin-top: 32px; }
+    .contact-social a img { width: 32px; height: 32px; opacity: 0.6; transition: opacity 0.2s; }
+    .contact-social a:hover img { opacity: 1; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; }
+    .form-group input,
+    .form-group textarea {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: #fff;
+      font-family: 'Open Sans', Arial, sans-serif;
+      resize: vertical;
+      transition: border-color 0.2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #666; }
+    .form-group input:focus,
+    .form-group textarea:focus { outline: none; border-color: var(--accent); }
+    .form-submit {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-family: 'Open Sans', Arial, sans-serif;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--accent-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-white);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 3px solid var(--accent);
+    }
+    .footer-logo img { height: 32px; width: auto; }
+    .footer-copy { font-size: 13px; color: #888; }
+    .footer-copy a { color: #888; text-decoration: none; }
+    .footer-copy a:hover { color: var(--accent); }
+
+    /* ── MOBILE STICKY BAR ── */
+    .mobile-sticky-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--accent); box-shadow: 0 -2px 12px rgba(0,0,0,0.2); }
+    .mobile-sticky-bar .sticky-inner { display: flex; align-items: center; }
+    .mobile-sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px; color: #fff; text-decoration: none; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.2s; }
+    .mobile-sticky-bar a:first-child { border-right: 1px solid rgba(255,255,255,0.3); }
+    .mobile-sticky-bar a:hover { background: var(--accent-dark); }
+    @media (min-width: 641px) { .mobile-sticky-bar { display: none !important; } }
+    @media (max-width: 640px) {
+      .mobile-sticky-bar { display: block; }
+      footer { padding-bottom: 72px; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-inner,
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid,
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 20px; justify-content: space-between; }
+      .nav-contact { display: none; }
+      .nav-logo { flex-shrink: 0; }
+      .hero { padding: 96px 20px 80px; }
+      .hero h1 { font-size: 32px; }
+      .hero-tagline { font-size: 15px; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .hero-btns a { width: 100%; max-width: 280px; text-align: center; }
+      .badges-inner { font-size: 12px; }
+      .badges-inner .badge-sep { padding: 0 8px; }
+      .pop-headline { font-size: 26px; letter-spacing: 1.5px; }
+      .pop-headline::after { margin-bottom: 20px; }
+      .about { padding: 60px 20px; }
+      .about-inner { gap: 32px; }
+      .about-photo-col img { max-width: 240px; margin: 0 auto; }
+      .about-text-col .pop-headline::after { margin-left: 0; }
+      .mission { padding: 60px 20px; }
+      .services { padding: 60px 20px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 24px 20px; }
+      .pricing { padding: 60px 20px; }
+      .pricing-grid,
+      .testi-grid { grid-template-columns: 1fr; }
+      .pricing-card-head { padding: 24px 20px 20px; }
+      .pricing-features { padding: 16px 20px; }
+      .pricing-cta { padding: 16px 20px 24px; }
+      .testimonials { padding: 60px 20px; }
+      .testi-card { padding: 24px 20px; }
+      .contact { padding: 60px 20px; }
+      .contact-inner { gap: 40px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 20px; }
+      .page-content { padding: 48px 20px; }
+      .page-header { padding: 60px 20px 48px; }
+      .page-header h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <img src="assets/logo.jpg" alt="Karina Cross Fitness">
+  </a>
+  <div class="nav-contact">
+    <a href="mailto:karina@karinacrossfitness.com">karina@karinacrossfitness.com</a>
+    <a href="tel:+13092025375" class="phone">(309) 202-5375</a>
+    <div class="nav-social">
+      <a href="https://www.facebook.com/Krossbeinshape/" target="_blank" aria-label="Facebook">
+        <img src="assets/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/kariccross/" target="_blank" aria-label="Instagram">
+        <img src="assets/instagram.png" alt="Instagram">
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Karina Cross Fitness</h1>
+    <p class="hero-tagline">Internationally recognized master trainer, body worker, and motivational speaker — transforming clients in Greer and the greater Greenville area for over three decades.</p>
+    <div class="hero-btns">
+      <a href="mailto:karina@karinacrossfitness.com?subject=Consultation Request" class="btn-primary">Book Free Consultation</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── BADGES ── -->
+<div class="badges">
+  <div class="badges-inner">
+    <span>34+ Years Experience</span>
+    <span class="badge-sep">&bull;</span>
+    <span>12x National Champion</span>
+    <span class="badge-sep">&bull;</span>
+    <span>ACSM Certified</span>
+    <span class="badge-sep">&bull;</span>
+    <span>100% Client Investment</span>
+    <span class="badge-sep">&bull;</span>
+    <span>🏋️‍♀️ Greer, SC</span>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-photo-col">
+      <img src="assets/karina-portrait_full.jpg" alt="Karina Cross — Master Trainer">
+    </div>
+    <div class="about-text-col">
+      <h2 class="pop-headline dark">About Karina</h2>
+      <p>Karina Cross is an <strong>internationally recognized master trainer</strong>, body worker, motivational speaker, and fitness model. She's a <strong>12-time National Champion in Power Lifting</strong> in her native country of Ecuador, holding national records in bench press (1996–2003) and deadlifting (1992–2003).</p>
+      <p>Karina specializes in <strong>strength training and conditioning</strong>, functional movement, weight loss, and athletic performance — and has a rare gift for working sensitively and effectively with clients across all walks of life: pregnancy, seniors, cancer patients, cardiac patients, spinal issues, joint replacement, and metabolic diseases.</p>
+      <p>If you're ready to transform not just your body but your entire relationship with fitness, Karina welcomes the opportunity to guide your journey.</p>
+      <a href="foreverfitstudio.html" class="about-link">View Qualifications</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── MISSION ── -->
+<section class="mission" id="mission">
+  <div class="mission-inner">
+    <h2 class="pop-headline">Inspire. Motivate. Educate.<br>Reach Your Full Potential.</h2>
+    <p>Karina Cross Fitness exists to inspire, motivate, and educate people to optimal levels of performance and balance in life. We're committed to improving and transforming your mentality — helping you reach your full potential — with a positive attitude, great energy, and 100% focused training sessions.</p>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <h2 class="pop-headline">Everything You Need. Expert Training.</h2>
+      <p>Whether you come to the studio for total body conditioning, weight loss, strength gains, athletic performance, post-pregnancy recovery, or functional mobility — Karina will build a personalized plan and stand by your side every step of the way.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">💪</div>
+        <h3>Strength Training</h3>
+        <p>Build muscle, increase power, and develop the kind of strength that carries into everyday life — with expert programming and hands-on instruction.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Weight Loss</h3>
+        <p>A customized fat-loss strategy combining progressive training and sustainable habits. Karina has helped hundreds shed body fat and keep it off.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏃</div>
+        <h3>Athletic Performance</h3>
+        <p>Sport-specific conditioning, speed work, agility, and explosive power — built around your goals and your competitive calendar.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤸</div>
+        <h3>Functional Mobility</h3>
+        <p>Move better, feel better. Targeted work to restore range of motion, reduce pain, and build the kind of flexibility that makes daily life easier.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤱</div>
+        <h3>Pre &amp; Post Natal</h3>
+        <p>Safe, effective training designed for expecting mothers and new moms recovering from pregnancy — with special attention to pelvic floor and core.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3>Special Populations</h3>
+        <p>Karina's unique background allows her to work effectively with cardiac patients, cancer survivors, seniors, clients with spinal issues, joint replacements, and metabolic disease.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <h2 class="pop-headline">Simple, Transparent Pricing</h2>
+      <p>Every new client starts with a free consultation. Regular clients receive full cardio equipment access during business hours.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Free Consultation -->
+      <div class="pricing-card">
+        <div class="pricing-card-head">
+          <div class="pricing-tier">Free</div>
+          <div class="pricing-price">$0</div>
+          <p class="pricing-desc">Meet Karina, discuss your goals, and build a customized roadmap — no commitment required.</p>
+        </div>
+        <ul class="pricing-features">
+          <li>No obligation or commitment</li>
+          <li>Discuss your fitness goals</li>
+          <li>Movement &amp; posture screening</li>
+          <li>Personalized roadmap — yours to keep</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="mailto:karina@karinacrossfitness.com?subject=Consultation Request">Get Started</a>
+        </div>
+      </div>
+
+      <!-- 30-Min (featured) -->
+      <div class="pricing-card featured">
+        <div class="pricing-card-head">
+          <div class="pricing-tier">Most Popular</div>
+          <div class="pricing-price">$45<span>/session</span></div>
+          <p class="pricing-desc">30-minute session — perfect for maintenance clients or focused, high-intensity one-on-one training.</p>
+        </div>
+        <ul class="pricing-features">
+          <li>One-on-one hands-on training</li>
+          <li>Personalized workout programming</li>
+          <li>Full cardio equipment access</li>
+          <li>Flexible scheduling</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="mailto:karina@karinacrossfitness.com?subject=30-Minute Session Interest">Get Started</a>
+        </div>
+      </div>
+
+      <!-- 1-Hour -->
+      <div class="pricing-card">
+        <div class="pricing-card-head">
+          <div class="pricing-tier">Best Value</div>
+          <div class="pricing-price">$90<span>/session</span></div>
+          <p class="pricing-desc">1-hour session — the full Karina experience with time for mobility, technique, and deep coaching.</p>
+        </div>
+        <ul class="pricing-features">
+          <li>Extended one-on-one session</li>
+          <li>Deep technique instruction</li>
+          <li>Mobility &amp; flexibility work</li>
+          <li>Flexible scheduling</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="mailto:karina@karinacrossfitness.com?subject=1 Hour Session Interest">Get Started</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <h2 class="pop-headline">What Clients Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-quote">"After years of maintaining the same physique, Karina taught me what my body needed in order to overcome my plateau and change my body, helping me to shed 7% body fat. More importantly, she taught me to trust the process. She is fit, focused and fierce. I not only have the best trainer, I gained a friend."</p>
+        <p class="testi-author">— Sandra, Weight Loss Client</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"Karina is one of those rare personal trainers with not only extensive certifications and experience, but with an extraordinary ability to adapt and implement that knowledge most effectively for each individual client. Her familiarity with anatomy, physiology, kinesiology, body chemistry, nutrition, and natural supplements is exceptional."</p>
+        <p class="testi-author">— Sharon, Long-term Client</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"With her knowledge and passion Karina works hard to give you all the tools you need to reach your goals. She is no nonsense and all business while making your time together fun and productive. If you work with her, be ready to push yourself. Hard work with Karina is absolutely worth it."</p>
+        <p class="testi-author">— Christin, Strength Training Client</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h2 class="pop-headline">Get In Touch</h2>
+      <div class="contact-item">
+        <div class="contact-item-label">Location</div>
+        <a href="https://maps.google.com/?q=2454+Hudson+Rd+Greer+SC+29650" target="_blank" class="contact-item-value">2454 Hudson Rd, Greer, SC 29650</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Email</div>
+        <a href="mailto:karina@karinacrossfitness.com" class="contact-item-value">karina@karinacrossfitness.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Phone</div>
+        <a href="tel:+13092025375" class="contact-item-value">(309) 202-5375</a>
+      </div>
+      <div class="contact-social">
+        <a href="https://www.facebook.com/Krossbeinshape/" target="_blank" aria-label="Facebook">
+          <img src="assets/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/kariccross/" target="_blank" aria-label="Instagram">
+          <img src="assets/instagram.png" alt="Instagram">
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+      <div class="form-group">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="cf-subject">Subject</label>
+        <input type="text" id="cf-subject" name="subject" placeholder="How can I help you?">
+      </div>
+      <div class="form-group">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" placeholder="Tell Karina about your fitness goals..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <img src="assets/logo.jpg" alt="Karina Cross Fitness">
+  </div>
+  <div class="footer-copy">
+    <a href="tel:+13092025375">(309) 202-5375</a> &nbsp;&middot;&nbsp;
+    &copy; 2025 Karina Cross Fitness, Greer, SC, USA
+  </div>
+</footer>
+
+<!-- ── MOBILE STICKY BAR ── -->
+<div class="mobile-sticky-bar">
+  <div class="sticky-inner">
+    <a href="mailto:karina@karinacrossfitness.com">&#9993; Email Karina</a>
+    <a href="tel:+13092025375">&#9742; Call Now</a>
+  </div>
+</div>
+
+</body>
+</html>

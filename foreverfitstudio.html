@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qualifications | Karina Cross Fitness</title>
+  <meta name="description" content="Karina Cross — 12-time National Powerlifting Champion, ACSM Certified Personal Trainer. Full credentials, certifications, and professional accomplishments.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #961b1d; --accent-dark: #6e1416; --accent-light: #b52225;
+      --text-dark: #0e0e0e; --text-body: #444; --text-muted: #777;
+      --bg-white: #ffffff; --bg-offwhite: #f8f8f8; --bg-lightgrey: #f2f2f2;
+      --bg-dark: #0d0d0d;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; color: #1a1a1a; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Pop Headlines */
+    .pop-headline {
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .pop-headline::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 12px;
+      margin-bottom: 28px;
+    }
+    .pop-headline.centered { text-align: center; }
+    .pop-headline.centered::after { margin-left: auto; margin-right: auto; }
+    .pop-headline.dark { color: var(--text-dark); }
+    .pop-headline.dark::after { background: var(--text-dark); }
+
+    /* Nav */
+    .site-nav { background: #ffffff; padding: 0 48px; height: 80px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--accent); }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-back { display: flex; align-items: center; gap: 8px; color: #555; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--accent); }
+    .nav-contact { display: flex; align-items: center; gap: 20px; }
+    .nav-contact a { color: #555; text-decoration: none; font-size: 14px; }
+    .nav-contact a:hover { color: var(--accent); }
+    .nav-contact a.phone { color: #1a1a1a; font-weight: 700; }
+
+    /* Page Header */
+    .page-header {
+      background: url('assets/about-bg_full.jpg') center / cover no-repeat;
+      padding: 80px 24px;
+      position: relative;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,14,0.72);
+    }
+    .page-header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .page-header h1 {
+      font-size: 44px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .page-header p { font-size: 16px; color: rgba(255,255,255,0.7); }
+
+    /* Page Content */
+    .page-content { max-width: 900px; margin: 0 auto; padding: 80px 24px; }
+    .content-section { margin-bottom: 64px; }
+    .content-section:last-child { margin-bottom: 0; }
+
+    /* Accomplishments */
+    .accomplishments-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .accomplishment {
+      background: var(--bg-offwhite);
+      border-radius: 8px;
+      padding: 24px;
+      border-top: 3px solid var(--accent);
+    }
+    .accomplishment h3 { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .accomplishment p { font-size: 13px; color: var(--text-body); line-height: 1.5; }
+
+    /* Credential List */
+    .credential-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .credential-list li {
+      font-size: 14px;
+      color: #333;
+      padding: 10px 14px;
+      background: var(--bg-offwhite);
+      border-radius: 4px;
+      border-left: 3px solid var(--accent);
+    }
+
+    /* Seminars */
+    .seminar-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .seminar-tag {
+      background: var(--bg-lightgrey);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--text-body);
+    }
+
+    /* CTA Block */
+    .page-cta {
+      background: var(--bg-dark);
+      border-radius: 8px;
+      padding: 48px;
+      text-align: center;
+    }
+    .page-cta h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .page-cta p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .page-cta a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 16px 40px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .page-cta a:hover { background: var(--accent-light); }
+
+    /* Footer */
+    footer { background: #ffffff; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; border-top: 3px solid var(--accent); }
+    .footer-logo img { height: 32px; width: auto; }
+    .footer-copy { font-size: 13px; color: #888; }
+    .footer-copy a { color: #888; text-decoration: none; }
+    .footer-copy a:hover { color: var(--accent); }
+
+    /* Mobile Sticky Bar */
+    .mobile-sticky-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--accent); box-shadow: 0 -2px 12px rgba(0,0,0,0.2); }
+    .mobile-sticky-bar .sticky-inner { display: flex; align-items: center; }
+    .mobile-sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px; color: #fff; text-decoration: none; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.2s; }
+    .mobile-sticky-bar a:first-child { border-right: 1px solid rgba(255,255,255,0.3); }
+    .mobile-sticky-bar a:hover { background: var(--accent-dark); }
+    @media (min-width: 641px) { .mobile-sticky-bar { display: none !important; } }
+    @media (max-width: 640px) {
+      .mobile-sticky-bar { display: block; }
+      footer { padding-bottom: 72px; }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 20px; }
+      .nav-contact { display: none; }
+      .page-header { padding: 60px 20px 48px; }
+      .page-header h1 { font-size: 28px; }
+      .page-content { padding: 48px 20px; }
+      .pop-headline { font-size: 24px; }
+      .pop-headline::after { margin-bottom: 20px; }
+      .accomplishments-grid,
+      .credential-list { grid-template-columns: 1fr; }
+      .page-cta { padding: 40px 24px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="Karina Cross Fitness"></a>
+  <a href="index.html" class="nav-back">&#8592; Back to Home</a>
+  <div class="nav-contact">
+    <a href="mailto:karina@karinacrossfitness.com">karina@karinacrossfitness.com</a>
+    <a href="tel:+13092025375" class="phone">(309) 202-5375</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Qualifications</h1>
+    <p>Karina Cross &mdash; International Master Trainer &bull; Since 1991</p>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <div class="content-section">
+    <h2 class="pop-headline">Accomplishments</h2>
+    <div class="accomplishments-grid">
+      <div class="accomplishment">
+        <h3>National Champion — Powerlifting</h3>
+        <p>60 Kilos: 1991&ndash;1996<br>67.5 Kilos: 1997&ndash;2003</p>
+      </div>
+      <div class="accomplishment">
+        <h3>The Strongest Woman of Ecuador</h3>
+        <p>1993&ndash;2003 &mdash; A decade of dominance in women&rsquo;s powerlifting at the national level.</p>
+      </div>
+      <div class="accomplishment">
+        <h3>Bench Press Championship</h3>
+        <p>National Record Holder: 1996&ndash;2003</p>
+      </div>
+      <div class="accomplishment">
+        <h3>Deadlifting Championship</h3>
+        <p>National Record Holder: 1992&ndash;2003</p>
+      </div>
+      <div class="accomplishment">
+        <h3>Modeling Titles</h3>
+        <p>Miss Bikini 1996 &bull; Miss Perfection 1997 &bull; Model of the Year 1999</p>
+      </div>
+      <div class="accomplishment">
+        <h3>Best Athlete of the Year</h3>
+        <p>1993 &bull; 1996 &bull; 1998 &mdash; Three-time recipient of Ecuador&rsquo;s Best Athlete award.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2 class="pop-headline">Certifications</h2>
+    <ul class="credential-list">
+      <li>Senior Fitness Instructor &mdash; ASFA</li>
+      <li>Master Weightlifting Instructor &mdash; USSR-EDFPU / IPF (Russia)</li>
+      <li>Certified Personal Trainer &mdash; ACSM</li>
+      <li>Certified Personal Trainer &mdash; Greenville Tech (GVT)</li>
+      <li>IHPU Functional Training Jr. Instructor</li>
+      <li>Weight Training Instructor &mdash; Power Lifting Techniques</li>
+      <li>TRX Instructor</li>
+      <li>CPR, AED &amp; First Aid</li>
+      <li>Associate&rsquo;s Degree in Marketing</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h2 class="pop-headline">Professional Seminars</h2>
+    <div class="seminar-list">
+      <span class="seminar-tag">Functional Strength Training for the Aging Spine</span>
+      <span class="seminar-tag">High Intensity Interval Training</span>
+      <span class="seminar-tag">Adrenal Dysfunction</span>
+      <span class="seminar-tag">Weight Training During Pregnancy</span>
+      <span class="seminar-tag">Functional Training &mdash; Carlos Santana</span>
+      <span class="seminar-tag">Innovative Boot Camp</span>
+      <span class="seminar-tag">Training the Overweight Client &mdash; Mike Boyle</span>
+      <span class="seminar-tag">Metabolic Training &mdash; Dave Jack</span>
+      <span class="seminar-tag">Bigger, Faster, Stronger</span>
+      <span class="seminar-tag">Sport Nutrition</span>
+      <span class="seminar-tag">The HIIT Advantage for Women</span>
+      <span class="seminar-tag">Functional Training for Sports &mdash; Mike Boyle</span>
+      <span class="seminar-tag">Athletic Body in Balance &amp; Kettlebell Training</span>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="page-cta">
+      <h3>Ready to Work with Karina?</h3>
+      <p>Book your free consultation and let Karina build a plan around your goals.</p>
+      <a href="mailto:karina@karinacrossfitness.com?subject=Consultation Request">Contact Karina</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="assets/logo.jpg" alt="Karina Cross Fitness"></div>
+  <div class="footer-copy">
+    <a href="tel:+13092025375">(309) 202-5375</a> &nbsp;&middot;&nbsp; &copy; 2025 Karina Cross Fitness, Greer, SC
+  </div>
+</footer>
+
+<!-- Mobile Sticky Bar -->
+<div class="mobile-sticky-bar">
+  <div class="sticky-inner">
+    <a href="mailto:karina@karinacrossfitness.com">&#9993; Email Karina</a>
+    <a href="tel:+13092025375">&#9742; Call Now</a>
+  </div>
+</div>
+
+</body>
+</html>
