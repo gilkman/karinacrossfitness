@@ -803,10 +803,7 @@
       </div>
     </div>
 
-    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <p class="hidden">
-        <label>Don't fill this out: <input name="bot-field"></label>
-      </p>
+    <form class="contact-form" id="contact-form" onsubmit="return false;">
       <div class="form-group">
         <label for="cf-name">Name</label>
         <input type="text" id="cf-name" name="name" placeholder="Your name" required>
@@ -823,8 +820,24 @@
         <label for="cf-message">Message</label>
         <textarea id="cf-message" name="message" rows="5" placeholder="Tell Karina about your fitness goals..."></textarea>
       </div>
-      <button type="submit" class="form-submit">Send Message</button>
+      <button type="button" class="form-submit" onclick="submitContactForm()">Send Message</button>
     </form>
+    <script>
+      function submitContactForm() {
+        var name = document.getElementById('cf-name').value.trim();
+        var email = document.getElementById('cf-email').value.trim();
+        var subject = document.getElementById('cf-subject').value.trim();
+        var message = document.getElementById('cf-message').value.trim();
+        if (!name || !email) {
+          alert('Please fill in your name and email before sending.');
+          return;
+        }
+        var body = 'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message;
+        var subj = subject || 'New Contact Form Submission';
+        var mailto = 'mailto:christin@karinacrossfitness.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+        window.location.href = mailto;
+      }
+    </script>
   </div>
 </section>
 
